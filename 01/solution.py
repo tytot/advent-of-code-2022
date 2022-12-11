@@ -1,5 +1,5 @@
-input = open('inputs/01.txt').read()
-calories = sorted([sum([int(count) for count in inventory.split('\n')])
+input = open(__file__.rstrip('solution.py') + 'input.txt').read()
+calories = sorted([sum(int(count) for count in inventory.split('\n'))
                    for inventory in input.split('\n\n')], reverse=True)
 print(calories[0])
 print(calories[0] + calories[1] + calories[2])
