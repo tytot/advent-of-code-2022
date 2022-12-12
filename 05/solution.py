@@ -1,6 +1,6 @@
 input = open(__file__.rstrip('solution.py') + 'input.txt').read()
 crates, steps = [lines.split('\n') for lines in input.split('\n\n')]
-stacks = [[line[i] for line in ([line[i + 1] for i in range(0, len(line), 4)] for line in crates[:-1]) if line[i].strip()][::-1] for i in range(int(crates[-1][-2]))]
+stacks = [[line[i] for line in (plane[1::4] for plane in crates[:-1]) if line[i].strip()][::-1] for i in range(int(crates[-1][-2]))]
 steps = [[int(num) for num in step.split(' ')[1::2]] for step in steps]
 
 stackscp = [stack[:] for stack in stacks]
